@@ -1,80 +1,53 @@
 general {
         output_format = "i3bar"
-        colors = true
+        colors = false
+        color_good =    '#88b090'
+        color_degraded ='#88b090'
+        color_bad =     '#88b090'
+        markup = pango
         interval = 1
 }
 
-order += "battery 0"
-order += "load"
+order += "cpu_temperature 0"
 order += "memory"
 order += "disk /"
+order += "wireless wlp2s0"
+order += "volume master"
 order += "tztime local"
-order += "tztime berlin"
 
-wireless wlan0 {
-        format_up = "W: (%quality at %essid, %bitrate) %ip"
-        format_down = "W: down"
-}
-
-ethernet eth0 {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
-}
-
-battery 0 {
-        format = "%status %percentage %remaining %emptytime"
-        format_down = "No battery"
-        status_chr = "⚡ CHR"
-        status_bat = "🔋 BAT"
-        status_unk = "? UNK"
-        status_full = "☻ FULL"
-        path = "/sys/class/power_supply/BAT%d/uevent"
-        low_threshold = 10
-}
-
-run_watch DHCP {
-        pidfile = "/var/run/dhclient*.pid"
-}
-
-run_watch VPNC {
-        # file containing the PID of a vpnc process
-        pidfile = "/var/run/vpnc/pid"
-}
-
-path_exists VPN {
-        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
-        path = "/proc/sys/net/ipv4/conf/tun0"
-}
-
-tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
-        hide_if_equals_localtime = true
-}
-
-tztime berlin {
-        format = "%Y-%m-%d %H:%M:%S %Z"
-        timezone = "Europe/Berlin"
+cpu_temperature 0 {
+        format = "<span background='#BF616A'> T </span><span background='#e5e9f0' color='#000000'> %degrees°C </span>"
+        path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
 load {
-        format = "%5min"
-}
-
-cpu_temperature 0 {
-        format = "T: %degrees °C"
-        path = "/sys/devices/platform/coretemp.0/temp1_input"
+        format = "<span background='#A3BE8C'> % </span><span background='#e5e9f0' color='#000000'> %1min </span>"
 }
 
 memory {
-        format = "%used"
+        format = "<span background='#A3BE8C'> M </span><span background='#e5e9f0' color='#000000'> %used </span>"
         threshold_degraded = "10%"
         format_degraded = "MEMORY: %free"
 }
 
 disk "/" {
-        format = "%free"
+        format = "<span background='#EBCB8B'> D </span><span background='#e5e9f0' color='#000000'> %free </span>"
 }
 
-read_file uptime {
-        path = "/proc/uptime"
+wireless wlp2s0 {
+        format_up = "<span background='#B48EAD'> W </span><span background='#e5e9f0' color='#000000'> %speed </span>"
+        format_down = "<span background='#B48EAD'> W </span><span background='#e5e9f0' color='#000000'> Disconnected </span>"
+}
+
+volume master {
+        format = "<span background='#81A1C1'> V </span><span background='#e5e9f0' color='#000000'> %volume </span>"
+        format_muted = "<span background='#81A1C1'>  </span><span background='#e5e9f0' color='#000000'> Muted </span>"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+tztime local {
+		format = "<span background='#88C0D0'> C </span><span background='#e5e9f0' color='#000000'> %time </span>"
+		format_time = "%a %-d %b %H:%M"
 }

@@ -37,10 +37,13 @@ call plug#begin("~/.vim/plugged")
     Plug 'jiangmiao/auto-pairs'
 
     Plug 'gruvbox-community/gruvbox'
+    Plug 'dracula/vim'
+    Plug 'sickill/vim-monokai'
+    Plug 'arcticicestudio/nord-vim'
     Plug 'psliwka/vim-smoothie'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme nord
 
 " G/gg smooth
 let g:smoothie_experimental_mappings = v:true
