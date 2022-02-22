@@ -46,6 +46,11 @@ bindsym XF86AudioMicMute exec --no-startup-id       "pactl set-source-mute @DEFA
 bindsym XF86MonBrightnessUp   	exec --no-startup-id "~/.config/oled/up.sh"
 bindsym XF86MonBrightnessDown 	exec --no-startup-id "~/.config/oled/down.sh"
 
+# Mediakeys
+bindsym XF86AudioPrev exec --no-startup-id  "playerctl previous"
+bindsym XF86AudioPlay exec --no-startup-id  "playerctl play-pause"
+bindsym XF86AudioNext exec --no-startup-id  "playerctl next"
+
 # Playerctl
 bindsym $mod+Up     exec --no-startup-id "playerctl play-pause"
 bindsym $mod+Down   exec --no-startup-id "playerctl play-pause"
