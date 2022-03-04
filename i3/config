@@ -75,6 +75,10 @@ bindsym $mod+o exec --no-startup-id $HOME/.config/i3/xdg_shell.sh
 # simple lock
 bindsym $mod+ctrl+l exec --no-startup-id "i3lock -e -c 000000"
 
+# xrandr
+bindsym $mod+ctrl+1 exec --no-startup-id "$HOME/.config/arandr/eDP.sh"
+bindsym $mod+ctrl+2 exec --no-startup-id "$HOME/.config/arandr/4K.sh"
+
 # kill focused window
 bindsym $mod+q kill
 

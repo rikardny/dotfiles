@@ -34,7 +34,6 @@ call plug#begin("~/.vim/plugged")
     Plug 'vim-airline/vim-airline'
 
     Plug 'tpope/vim-commentary'
-    Plug 'jiangmiao/auto-pairs'
 
     Plug 'gruvbox-community/gruvbox'
     Plug 'dracula/vim'
