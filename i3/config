@@ -207,7 +207,10 @@ bar {
 }
 
 for_window [class=.*] border pixel 2
+hide_edge_borders smart
 for_window [class="Nautilus"] floating enable
+
+mouse_warping none
 
 
 # class                 border  backgr. text    indicator child_border
@@ -221,6 +224,7 @@ client.background       #ffffff
 
 # i3-gaps
 gaps inner 10
+smart_gaps on
 
 exec --no-startup-id "xset r rate 150 50"
 exec --no-startup-id "sleep 0.5; xmodmap ~/.config/xmodmap"
