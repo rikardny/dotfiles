@@ -12,8 +12,8 @@ order += "cpu_temperature 0"
 order += "memory"
 order += "disk /"
 order += "volume master"
-order += "tztime local"
 order += "battery 0"
+order += "tztime local"
 
 cpu_temperature 0 {
         format = "<span background='#BF616A'> T </span><span background='#e5e9f0' color='#000000'> %degrees°C </span>"
@@ -47,13 +47,14 @@ volume master {
         mixer_idx = 0
 }
 
-tztime local {
-		format = "<span background='#88C0D0'> C </span><span background='#e5e9f0' color='#000000'> %time </span>"
-		format_time = "%a %-d %b %H:%M"
-}
-
 battery 0 {
-        format = "<span background='#81A1C1'> %status </span><span background='#e5e9f0' color='#000000'> %percentage %remaining </span>"
+        format = "<span background='#88C0D0'> %status </span><span background='#e5e9f0' color='#000000'> %percentage %remaining </span>"
         integer_battery_capacity = true
         last_full_capacity = true
 }
+
+tztime local {
+		format = "<span background='#81A1C1'> C </span><span background='#e5e9f0' color='#000000'> %time </span>"
+		format_time = "%a %-d %b %H:%M:%S"
+}
+
