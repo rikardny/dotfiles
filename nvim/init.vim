@@ -42,7 +42,6 @@ call plug#begin("~/.vim/plugged")
     Plug 'psliwka/vim-smoothie'
 call plug#end()
 
-colorscheme nord
 
 " G/gg smooth
 let g:smoothie_experimental_mappings = v:true
@@ -76,3 +75,5 @@ nnoremap <leader>0 :NERDTreeToggle<CR>
 
 inoremap jk <Esc>
 inoremap kj <Esc>
+
+colorscheme gruvbox

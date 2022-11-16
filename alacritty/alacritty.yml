@@ -517,4 +517,4 @@ schemes:
 # *TomorrowNight
 # *Monokai
 
-colors: *Nord
+colors: *Gruvbox
