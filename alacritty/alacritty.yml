@@ -35,22 +35,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: monospace
+    family: Cascadia Mono PL
     style: Regular
 
   # Bold font face
   bold:
-    family: monospace
+    family: Cascadia Mono PL
     style: Bold
 
   # Italic font face
   italic:
-    family: monospace
+    family: Cascadia Mono PL
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: monospace
+    family: Cascadia Mono PL
     style: Bold Italic
 
   # Point size
@@ -59,7 +59,7 @@ font:
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
-    x: 0
+    x: 1
     y: 1
 
 # If `true`, bold text is drawn using the bright color variants.

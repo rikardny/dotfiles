@@ -43,8 +43,8 @@ bindsym XF86AudioMute exec --no-startup-id          "pactl set-sink-mute @DEFAUL
 bindsym XF86AudioMicMute exec --no-startup-id       "pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status"
 
 # Screen brightness
-bindsym XF86MonBrightnessUp   	exec --no-startup-id "~/.config/oled/up.sh"
-bindsym XF86MonBrightnessDown 	exec --no-startup-id "~/.config/oled/down.sh"
+bindsym XF86MonBrightnessUp   	exec --no-startup-id "light -A 11"
+bindsym XF86MonBrightnessDown 	exec --no-startup-id "light -U 11"
 
 # Mediakeys
 bindsym XF86AudioPrev exec --no-startup-id  "playerctl previous"
@@ -74,6 +74,7 @@ bindsym $mod+o exec --no-startup-id $HOME/.config/i3/xdg_shell.sh
 
 # simple lock
 bindsym $mod+ctrl+l exec --no-startup-id "i3lock -e -c 000000"
+bindsym $mod+ctrl+k exec --no-startup-id "$HOME/.config/lock.sh"
 
 # xrandr
 bindsym $mod+ctrl+1 exec --no-startup-id "$HOME/.config/arandr/eDP.sh"

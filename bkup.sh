@@ -1,4 +1,5 @@
 #!/bin/bash
+cp ../../.bashrc .
 cp -r ../alacritty .
 cp -r ../i3 .
 cp -r ../i3status .
