@@ -126,3 +126,4 @@ alias seba="source env/bin/activate"
 alias sa="source env/bin/activate"
 alias bt="bluetoothctl"
 alias batt="upower -i `upower -e | grep 'BAT'`"
+alias vim=nvim

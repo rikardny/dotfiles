@@ -500,6 +500,35 @@ schemes:
      cyan:    '#A1EFE4'
      white:   '#F9F8F5'
 
+  # Colors (OneDark)
+  Monokai: &OneDark
+    # Default colors
+    primary:
+      background: '#282c34'
+      foreground: '#abb2Bf'
+
+    # Normal colors
+    normal:
+     black:   '#282c34'
+     red:     '#e06c75'
+     green:   '#98c379'
+     yellow:  '#e5c07b'
+     blue:    '#61afef'
+     magenta: '#c678dd'
+     cyan:    '#56b6c2'
+     white:   '#abb2bf'
+
+    # Bright colors
+    bright:
+     black:   '#282c34'
+     red:     '#e06c75'
+     green:   '#98c379'
+     yellow:  '#e5c07b'
+     blue:    '#61afef'
+     magenta: '#c678dd'
+     cyan:    '#56b6c2'
+     white:   '#abb2bf'
+
 ######################################################################
 ## SET THEME: Choose ONE color scheme from those in the above list. ##
 ## ###################################################################
@@ -517,4 +546,4 @@ schemes:
 # *TomorrowNight
 # *Monokai
 
-colors: *Gruvbox
+colors: *OneDark
