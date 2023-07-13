@@ -52,10 +52,10 @@ bindsym XF86AudioPlay exec --no-startup-id  "playerctl play-pause"
 bindsym XF86AudioNext exec --no-startup-id  "playerctl next"
 
 # Playerctl
-bindsym $mod+Up     exec --no-startup-id "playerctl play-pause"
-bindsym $mod+Down   exec --no-startup-id "playerctl play-pause"
-bindsym $mod+Right 	exec --no-startup-id "playerctl next"
-bindsym $mod+Left 	exec --no-startup-id "playerctl previous"
+# bindsym $mod+Up     exec --no-startup-id "playerctl play-pause"
+# bindsym $mod+Down   exec --no-startup-id "playerctl play-pause"
+# bindsym $mod+Right 	exec --no-startup-id "playerctl next"
+# bindsym $mod+Left 	exec --no-startup-id "playerctl previous"
 
 # Screenshot
 bindsym --release Print exec --no-startup-id "gnome-screenshot -i"

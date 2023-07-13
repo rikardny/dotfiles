@@ -36,6 +36,7 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now :)
 --]]
 
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -76,6 +77,10 @@ require('lazy').setup({
   -- Smooth scrolling
   'psliwka/vim-smoothie',
 
+  -- File tree
+  'nvim-tree/nvim-tree.lua',
+  'nvim-tree/nvim-web-devicons',
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   { -- LSP Configuration & Plugins
@@ -87,7 +92,23 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      -- { 'j-hui/fidget.nvim', version = 'legacy', opts = {} },
+
+      -- changed to noice instead of fidget
+      { "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- add any options here
+        },
+        dependencies = {
+          -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+          "MunifTanjim/nui.nvim",
+          -- OPTIONAL:
+          --   `nvim-notify` is only needed, if you want to use the notification view.
+          --   If not available, we use `mini` as the fallback
+          "rcarriga/nvim-notify",
+          }
+      },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -233,11 +254,33 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- nvim-tree setup
+vim.g.loaded_netrw       = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+
 -- [[ Basic Keymaps ]]
+-- My own keymaps
+vim.keymap.set({ 'n', 'v' }, '<S-tab>', '<C-o>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, 'ZS', ':w<CR>', { silent = false, desc = "Write to file - 'save'" })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>lr', vim.lsp.buf.references, { buffer=true })
+
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -280,6 +323,9 @@ vim.keymap.set('n', '<leader>/', function()
     previewer = false,
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
+
+vim.keymap.set('n', 'g?', require('nvim-tree.api').tree.toggle_help, { desc = 'Show nvim-tree mappings' })
+vim.keymap.set('n', '<leader>0', require('nvim-tree.api').tree.toggle, { desc = 'Toggle nvim-tree' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })

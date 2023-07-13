@@ -20,8 +20,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 6
-    y: 6
+    x: 4
+    y: 4
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -35,31 +35,31 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Cascadia Mono PL
+    family: UbuntuMono Nerd Font Propo
     style: Regular
 
   # Bold font face
   bold:
-    family: Cascadia Mono PL
+    family: UbuntuMono Nerd Font Propo
     style: Bold
 
   # Italic font face
   italic:
-    family: Cascadia Mono PL
+    family: UbuntuMono Nerd Font Propo
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: Cascadia Mono PL
+    family: UbuntuMono Nerd Font Propo
     style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
-    x: 1
+    x: 0
     y: 1
 
 # If `true`, bold text is drawn using the bright color variants.
@@ -121,7 +121,7 @@ schemes:
       focused_match:
         foreground: '#44475a'
         background: '#ffb86c'
-      bar:
+      footer_bar:
         background: '#282a36'
         foreground: '#f8f8f2'
     line_indicator:
@@ -545,5 +545,6 @@ schemes:
 # *SolarizedDark
 # *TomorrowNight
 # *Monokai
+# *OneDark
 
 colors: *OneDark

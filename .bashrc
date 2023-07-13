@@ -127,3 +127,13 @@ alias sa="source env/bin/activate"
 alias bt="bluetoothctl"
 alias batt="upower -i `upower -e | grep 'BAT'`"
 alias vim=nvim
+
+sd() {
+    cd ~
+    cd "$(find . -type d | fzf -q "$1")"
+}
+
+sf() {
+    cd ~
+    vim "$(find . -type f | fzf -q "$1")"
+}
