@@ -17,7 +17,7 @@ order += "time"
 
 cpu_temperature 0 {
     format = "<span background='#BF616A'> T </span><span background='#e5e9f0' color='#000000'> %degrees°C </span>"
-    path = "/sys/class/thermal/thermal_zone10/temp"
+    path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
 load {
