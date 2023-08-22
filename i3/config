@@ -67,7 +67,7 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id $HOME/.config/i3/i3_shell.sh
 
 # start a browser
-bindsym $mod+b exec --no-startup-id chromium
+bindsym $mod+b exec --no-startup-id brave-browser
 
 # open nautilus
 bindsym $mod+o exec --no-startup-id $HOME/.config/i3/xdg_shell.sh
@@ -77,8 +77,8 @@ bindsym $mod+ctrl+l exec --no-startup-id "i3lock -e -c 000000"
 bindsym $mod+ctrl+k exec --no-startup-id "$HOME/.config/lock.sh"
 
 # xrandr
-bindsym $mod+ctrl+1 exec --no-startup-id "$HOME/.config/arandr/eDP.sh"
-bindsym $mod+ctrl+2 exec --no-startup-id "$HOME/.config/arandr/4K.sh"
+bindsym $mod+ctrl+1 exec --no-startup-id "xmodmap $HOME/.config/xmodmap.colemak"
+bindsym $mod+ctrl+2 exec --no-startup-id "xmodmap $HOME/.config/xmodmap.qwerty"
 bindsym $mod+ctrl+3 exec --no-startup-id "$HOME/.config/arandr/sart.sh"
 
 # kill focused window
@@ -87,7 +87,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-bindcode $mod+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -205,7 +205,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    position top
+    position bottom
     status_command i3status
     font pango:monospace 10
     separator_symbol " "
@@ -228,8 +228,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # gaps
+gaps inner 5px
 
 exec --no-startup-id "xset r rate 150 50"
 exec --no-startup-id "nitrogen --restore"
-exec --no-startup-id "xrdb ~/.Xresources"
 exec --no-startup-id "xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 0.4"

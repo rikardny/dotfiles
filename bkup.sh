@@ -8,3 +8,5 @@ cp -r ../nvim .
 cp -r ../rofi .
 cp -r ../arandr .
 cp ../xmodmap .
+cp ../xmodmap.colemak .
+cp ../xmodmap.qwerty .
