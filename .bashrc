@@ -124,7 +124,6 @@ alias o="xdg-open"
 alias tre="tree -L 4"
 alias seba="source env/bin/activate"
 alias sa="source env/bin/activate"
-alias de="deactivate"
 alias bt="bluetoothctl"
 alias batt="upower -i `upower -e | grep 'BAT'`"
 alias vim=nvim
@@ -138,3 +137,5 @@ sf() {
     cd ~
     vim "$(find . -type f | fzf -q "$1")"
 }
+. "$HOME/.cargo/env"
+source ~/.bash_completion/alacritty
