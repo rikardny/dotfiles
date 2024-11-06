@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-force_color_prompt=yes
+#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -60,6 +60,7 @@ if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -115,18 +116,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+source /opt/ros/jazzy/setup.bash
+. "$HOME/.cargo/env"
+source ~/.bash_completion/alacritty
 
+export TERM=alacritty
 export PROMPT_COMMAND="pwd > /tmp/whereami"
-
-alias aptup="sudo apt update && sudo apt upgrade"
-alias aptrcp="sudo apt autoremove && sudo apt autoclean && sudo apt autopurge"
-alias o="xdg-open"
-alias tre="tree -L 4"
-alias seba="source env/bin/activate"
-alias sa="source env/bin/activate"
-alias bt="bluetoothctl"
-alias batt="upower -i `upower -e | grep 'BAT'`"
-alias vim=nvim
 
 sd() {
     cd ~
@@ -137,5 +132,3 @@ sf() {
     cd ~
     vim "$(find . -type f | fzf -q "$1")"
 }
-. "$HOME/.cargo/env"
-source ~/.bash_completion/alacritty
