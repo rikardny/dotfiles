@@ -120,7 +120,7 @@ source /opt/ros/jazzy/setup.bash
 . "$HOME/.cargo/env"
 source ~/.bash_completion/alacritty
 
-export TERM=alacritty
+export TERM=xterm-256color
 export PROMPT_COMMAND="pwd > /tmp/whereami"
 
 sd() {

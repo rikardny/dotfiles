@@ -228,4 +228,7 @@ bar {
         status_command i3status
 }
 
-exec --no-startup-id "xset r rate 150 50"
+exec --no-startup-id "xset r rate 150 64"
+exec --no-startup-id "xset m 0 0"
+exec --no-startup-id "xinput set-prop 'SYNA30F7 :00 06CB:CEC3 Touchpad' 'libinput Tapping Enabled' 1"
+
