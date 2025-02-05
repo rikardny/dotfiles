@@ -7,3 +7,4 @@ alias o='xdg-open'
 alias tre='tree -L 4'
 alias vim=nvim
 alias v=nvim
+alias cb='colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
