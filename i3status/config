@@ -1,11 +1,12 @@
 general {
     output_format = "i3bar"
-    colors = false
-    color_good =    '#88b090'
-    color_degraded ='#88b090'
-    color_bad =     '#88b090'
+    colors = true
+    color_good =    '#00FF00'
+    color_degraded ='#FFFF00'
+    color_bad =     '#FF0000'
     markup = pango
     interval = 1
+	separator = ''
 }
 
 order += "cpu_temperature 0"
@@ -13,7 +14,7 @@ order += "memory"
 order += "disk /"
 order += "volume master"
 order += "battery 0"
-order += "time"
+order += "tztime local"
 
 cpu_temperature 0 {
     format = "<span background='#BF616A'> T </span><span background='#e5e9f0' color='#000000'> %degrees°C </span>"
@@ -48,11 +49,12 @@ volume master {
 }
 
 battery 0 {
-    format = "<span background='#88C0D0'> %status </span><span background='#e5e9f0' color='#000000'> %percentage %remaining</span>"
+    format = "<span background='#88C0D0'> %status </span><span background='#e5e9f0' color='#000000'> %percentage %remaining </span>"
     integer_battery_capacity = true
     last_full_capacity = true
 }
 
-time {
-	format = "<span background='#81A1C1'> C </span><span background='#e5e9f0' color='#000000'> %a %-d %b %H:%M:%S </span>"
+tztime local {
+    format = "%Y-%m-%d %H:%M:%S"
+    timezone = "Europe/Stockholm"
 }

@@ -1,12 +1,17 @@
 [font]
-size = 13.0
-
-[font.bold]
-family = "Cascadia Code NF" 
-style = "Bold"
+size = 12.0
 
 [font.normal]
-family = "Cascadia Code NF" 
+family = "0xProtoNerdFont" 
+style = "Regular"
+
+[font.bold]
+family = "0xProtoNerdFont" 
+style = "Bold"
+
+[font.italic]
+family = "0xProtoNerdFont" 
+style = "Italic"
 
 [env]
 WINIT_X11_SCALE_FACTOR = "1"

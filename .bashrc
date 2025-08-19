@@ -116,9 +116,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-source /opt/ros/jazzy/setup.bash
-. "$HOME/.cargo/env"
-source ~/.bash_completion/alacritty
 
 export TERM=xterm-256color
 export PROMPT_COMMAND="pwd > /tmp/whereami"
@@ -132,5 +129,5 @@ sf() {
     cd ~
     vim "$(find . -type f | fzf -q "$1")"
 }
-source /opt/ros/jazzy/setup.bash
+source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=42
