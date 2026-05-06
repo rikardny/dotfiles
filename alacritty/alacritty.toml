@@ -2,15 +2,15 @@
 size = 12.0
 
 [font.normal]
-family = "0xProtoNerdFont" 
+family = "0xProto Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "0xProtoNerdFont" 
+family = "0xProto Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "0xProtoNerdFont" 
+family = "0xProto Nerd Font"
 style = "Italic"
 
 [env]
@@ -26,6 +26,6 @@ import = [
   # "~/.config/alacritty/catppuccin-macchiato.toml"
   # "~/.config/alacritty/catppuccin-frappe.toml"
   # "~/.config/alacritty/catppuccin-latte.toml"
-  "~/.config/alacritty/tokyo-night.toml"
+  # "~/.config/alacritty/tokyo-night.toml"
   # "~/.config/alacritty/tokyo-night-storm.toml"
 ]
