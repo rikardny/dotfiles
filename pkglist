@@ -1,10 +1,11 @@
-i3
+sway
 alacritty
 git
-htop
-arandr
+btop
+wdisplay
+kanshi
 curl
-xclip
+wl-clipboard
 light
 neofetch
 playerctl
