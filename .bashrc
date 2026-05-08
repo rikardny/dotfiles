@@ -56,11 +56,28 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+__git_branch() {
+    git rev-parse --is-inside-work-tree &>/dev/null || return
+    local branch
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+    echo " ($branch)"
+}
+
+BLACK='\[\033[01;30m\]'
+RED='\[\033[01;31m\]'
+GREEN='\[\033[01;32m\]'
+YELLOW='\[\033[01;33m\]'
+BLUE='\[\033[01;34m\]'
+MAGENTA='\[\033[01;35m\]'
+CYAN='\[\033[01;36m\]'
+WHITE='\[\033[01;37m\]'
+RESET='\[\033[00m\]'
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)} \[\033[01;32m\] @x9 \[\033[00m\] : \[\033[01;34m\] \w \[\033[00m\]\[\033[01;33m\] $ (__git_branch)\[\033[00m\]\$ '
+    PS1="${YELLOW}\$ ${RESET}\w${CYAN}\$(__git_branch) ${RED}> ${RESET}"
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}r@x9:\w$(__git_branch)\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -124,3 +141,6 @@ sd() {
     cd ~
     cd "$(find . -type d | fzf -q "$1")"
 }
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

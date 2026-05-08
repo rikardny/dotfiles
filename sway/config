@@ -40,10 +40,13 @@ output eDP-1 scale 1.5
 #
 ## Example configuration:
 
-exec swayidle -w \
-         timeout 30 'swaylock -f -c 000000' \
-         timeout 60 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         # timeout 300 'swaylock -f -c 000000' \
+         # timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+exec_always "killall swayidle; swayidle -w timeout 5 swaylock"
+# exec swayidle -w \
+#          timeout 3 'swaylock -f -c 000000' \
+#          timeout 6 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -62,7 +65,7 @@ input type:touchpad {
 
 input type:keyboard {
 	xkb_layout "se"
-	xkb_file ~/.config/sway/caps_rebind.xkb
+	xkb_file ~/.config/sway/rebind.xkb
 	repeat_delay 150
 	repeat_rate 64
 }
@@ -224,17 +227,17 @@ bindsym $mod+r mode "resize"
 # Utilities:
 #
     # Special keys to adjust volume via PulseAudio
-    bindsym --locked XF86AudioMute 		exec "wpctl set-mute \@DEFAULT_SINK@ toggle"
-    bindsym --locked XF86AudioLowerVolume 	exec "wpctl set-volume \@DEFAULT_SINK@ 5%-"
-    bindsym --locked XF86AudioRaiseVolume 	exec "wpctl set-volume \@DEFAULT_SINK@ 5%+"
-    bindsym --locked XF86AudioMicMute 		exec "wpctl set-mute \@DEFAULT_SOURCE@ toggle"
-	# Mediakeys
-	bindsym XF86AudioPrev exec --no-startup-id  "playerctl previous"
-	bindsym XF86AudioPlay exec --no-startup-id  "playerctl play-pause"
-	bindsym XF86AudioNext exec --no-startup-id  "playerctl next"
+    bindsym --locked XF86AudioMute         exec "wpctl set-mute \@DEFAULT_SINK@ toggle && echo x > /tmp/swaybar_update"
+    bindsym --locked XF86AudioLowerVolume  exec "wpctl set-volume \@DEFAULT_SINK@ 5%- && echo x > /tmp/swaybar_update"
+    bindsym --locked XF86AudioRaiseVolume  exec "wpctl set-volume \@DEFAULT_SINK@ 5%+ && echo x > /tmp/swaybar_update"
+    bindsym --locked XF86AudioMicMute      exec "wpctl set-mute \@DEFAULT_SOURCE@ toggle"
+    # Mediakeys
+    bindsym XF86AudioPrev exec --no-startup-id  "playerctl previous"
+    bindsym XF86AudioPlay exec --no-startup-id  "playerctl play-pause"
+    bindsym XF86AudioNext exec --no-startup-id  "playerctl next"
     # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown	exec "light -U 9"
-    bindsym --locked XF86MonBrightnessUp 	exec "light -A 9"
+    bindsym --locked XF86MonBrightnessDown  exec "light -U 9 && echo x > /tmp/swaybar_update"
+    bindsym --locked XF86MonBrightnessUp    exec "light -A 9 && echo x > /tmp/swaybar_update"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 	# Simple lock
@@ -249,7 +252,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command ~/.config/sway/status.sh
 
     colors {
         statusline #ffffff
@@ -265,4 +268,4 @@ default_border pixel 3
 include /etc/sway/config.d/*
 
 exec "kanshi"
-exec "swaybg -i /usr/share/backgrounds/manuej-Vor.jpg -m fill"
+exec_always "swaybg -i /usr/share/backgrounds/manuej-Vor.jpg -m fill"
