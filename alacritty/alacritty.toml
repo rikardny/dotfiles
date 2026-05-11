@@ -25,10 +25,9 @@ import = [
   # "catppuccin-mocha.toml"
   # "catppuccin-macchiato.toml"
   # "catppuccin-frappe.toml"
-  # "catppuccin-latte.toml"
   # "tokyo-night.toml"
   # "tokyo-night-storm.toml"
-  "rose-pine.toml"
-  # "rose-pine-dawn.toml"
+  # "rose-pine.toml"
   # "rose-pine-moon.toml"
+  "nord.toml"
 ]

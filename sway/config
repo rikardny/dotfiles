@@ -268,4 +268,5 @@ default_border pixel 3
 include /etc/sway/config.d/*
 
 exec "kanshi"
-exec_always "swaybg -i /usr/share/backgrounds/manuej-Vor.jpg -m fill"
+# exec_always "swaybg -i /usr/share/backgrounds/manuej-Vor.jpg -m fill"
+exec_always "swaybg -i ~/Downloads/13ol6fbk1in91.png -m fill"

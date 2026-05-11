@@ -131,7 +131,7 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
 
-        stylua = {}, -- Used to format Lua code
+        -- stylua = {}, -- Used to format Lua code
 
         -- Special Lua Config, as recommended by neovim help docs
         lua_ls = {
@@ -181,10 +181,10 @@ return {
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      require('mason-lspconfig').setup { automatic_enable = true }
 
       for name, server in pairs(servers) do
         vim.lsp.config(name, server)
-        vim.lsp.enable(name)
       end
     end,
   },
