@@ -29,5 +29,6 @@ import = [
   # "tokyo-night-storm.toml"
   # "rose-pine.toml"
   # "rose-pine-moon.toml"
-  "nord.toml"
+  # "nord.toml"
+  "ayu.toml"
 ]

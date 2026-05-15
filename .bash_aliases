@@ -5,6 +5,6 @@ alias o='xdg-open'
 alias vim='nvim'
 alias v='nvim'
 
-alias seba='source .env/bin/activate'
-alias sa='source .env/bin/activate'
+alias seba='source .venv/bin/activate'
+alias sa='source .venv/bin/activate'
 alias de='deactivate'
